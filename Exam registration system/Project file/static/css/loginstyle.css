@@ -1,0 +1,109 @@
+.logs{
+	transition: all linear 0.5s;
+	position: absolute;
+	top: 30px;
+	left:30%;
+	width: 450px;
+	height: 380px;
+	padding-left: 50px;
+	margin-bottom: 5px;
+	background-color:   #ffbe79 ;
+	border-radius: 10px;
+	padding:20px 40px;
+}
+
+.form-style{
+	color: black;
+	font-family: 'Allerta Stencil', sans-serif;
+	line-height: 35px;
+}
+
+.form-style input{
+	width: 400px;
+	height: 40px;	
+	padding-left: 15px;
+	font-size: 15px;
+	border-radius: 7px;
+    border-left: none;
+	border-top: none;
+	border-right: none;
+}
+
+.form-style input:hover{
+	border-color: orange;
+	animation-name: inputanim;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+.form-style input[type=submit]{
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	width: 100px;
+    background: 0;
+	cursor: pointer;
+	border: 0;
+	margin-left: 0px;
+}
+
+.form-style input[type=submit]:hover{
+	color:white;
+	animation-name: btnhover1;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+.logs input[type=button]{
+    width: 100px;
+    background:0;
+    background-color: none;
+    border:none;
+    float: right;
+    position: absolute;
+    margin-left: 120px;
+}
+
+.logs input[type=button]:hover{
+    color: white;
+    border: 0px;
+    animation-name: btnhover;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btnhover{
+    from{
+      background-color: none;
+	  opacity: 0.1;
+    }
+    to{
+      background-color: orange;
+	  opacity: 1;
+    }
+}
+
+@keyframes btnhover1{
+	from{
+		opacity: 0.2;
+		color: black;
+		background-color: none;
+	}
+	to{
+		opacity: 1;
+		color: white;
+		background-color: orange;
+	}
+}
+
+@keyframes inputanim{
+	from{
+		border-color: white;
+	}
+	to{
+		border-color: orange;
+	}
+}

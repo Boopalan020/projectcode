@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
+	<link rel="stylesheet" type="text/css" href="../static/css/home.css">
+	<script>
+		function personal() {
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="none";
+			tab.style.display = "none";
+			xpart.style.display ="none";
+			hscdet.style.display ="none";
+			sslcdet.style.display ="none";
+			personals.style.display ="block";
+			addressdet.style.display ="none";
+		}
+
+		function address() {
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="none";
+			tab.style.display = "none";
+			xpart.style.display ="none";
+			hscdet.style.display ="none";
+			sslcdet.style.display ="none";
+			personals.style.display ="none";
+			addressdet.style.display ="block";
+		}	
+		function sslc()	{
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="none";
+			tab.style.display = "none";
+			xpart.style.display ="none";
+			hscdet.style.display ="none";
+			sslcdet.style.display ="block";
+			personals.style.display ="none";
+			addressdet.style.display ="none";
+		}
+		function hsc(){
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="none";
+			tab.style.display = "none";
+			xpart.style.display ="none";
+			hscdet.style.display ="block";
+			sslcdet.style.display ="none";
+			personals.style.display ="none";
+			addressdet.style.display ="none";
+		}
+		function parts(){
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="none";
+			tab.style.display = "none";
+			xpart.style.display ="block";
+			hscdet.style.display ="none";
+			sslcdet.style.display ="none";
+			personals.style.display ="none";
+			addressdet.style.display ="none";
+		}
+
+		function contacts(){
+			var personals = document.getElementById("pdetails");
+			var addressdet = document.getElementById("adetails");
+			var sslcdet = document.getElementById("sslcid");
+			var hscdet = document.getElementById("hscid");
+			var xpart = document.getElementById("exampart");
+			var tab = document.getElementById("home");
+			var abouts = document.getElementById("aboutus");
+			abouts.style.display="block";
+			tab.style.display = "none";
+			xpart.style.display ="none";
+			hscdet.style.display ="none";
+			sslcdet.style.display ="none";
+			personals.style.display ="none";
+			addressdet.style.display ="none";
+		}
+		
+		function pay(){
+			document.examparts.status.value = "Paid";
+		}
+		
+		function mobile(){
+			var mob = document.getElementById("mobmessage");
+			var phone = document.per_det.phone.value;
+			if(isNaN(phone) || phone.length != 10){
+				mob.style.display = "block";
+			}
+			else{
+				mob.style.display = "none";
+			}
+		}
+
+		function pincode(){
+			var pmsg = document.getElementById("pinmsg");
+			var pins = document.add_det.pin.value;
+			if(isNaN(pins) || pins.length != 6)
+			{
+				pmsg.style.display = "block";
+			}
+			else{
+				pmsg.style.display = "none";
+			}
+		}
+
+		function percent(){
+			var perc = document.sslc_id.marper.value;
+			var permsg = document.getElementById("permg");	
+			if(isNaN(perc) || perc < 0 || perc>100){
+				permsg.style.display = "block";
+			}
+			else{
+				permsg.style.display = "none";
+			}
+		}
+
+		function hpercent(){
+			var percs = document.hsc_id.marpers.value;
+			var permsgs = document.getElementById("permgs");	
+			if(isNaN(percs) || percs < 0 || percs > 100){
+				permsgs.style.display = "block";
+			}
+			else{
+				permsgs.style.display = "none";
+			}
+		}
+
+		function certify(){
+			var certi = document.sslc_id.cerno.value;
+			var msg = document.getElementById("cert");
+			if(isNaN(certi) || certi.length !=8){
+				msg.style.display = "block";
+			}
+			else{
+				msg.style.display = "none";
+			}
+		}
+
+		function hcertify(){
+			var certis = document.hsc_id.cernos.value;
+			var msgs = document.getElementById("certs");
+			if(isNaN(certis) || certis.length !=8){
+				msgs.style.display = "block";
+			}
+			else{
+				msgs.style.display = "none";
+			}
+		}
+
+		function creditcard(){
+			var carddiv = document.getElementById("card");
+			var card = document.examparts.credits.value;
+			if(card.length != 16 || isNaN(card)){
+				carddiv.style.display = "block";
+			}
+			else{
+				carddiv.style.display = "none";
+			}
+		}
+
+		function expiry(){
+			var dates =[];
+			var curmon;
+			var curyear;
+			dates = document.examparts.expdata.value;
+			var expdiv = document.getElementById("exp");
+			now =new Date();								//Creating date Object
+			x = dates[0]+dates[1];
+			y = dates[3]+ dates[4] + dates[5] + dates[6];
+			mon = parseInt(x);								//Storing Expiry month in a variable
+			yr = parseInt(y);								//Storing Expiry year in a variable
+			
+			curmon = now.getMonth() + 1;					//Getting current month
+			curyear = now.getFullYear();
+
+			if(yr > curyear){
+				expdiv.style.display = "block";
+			}
+			
+			if(yr < curyear){
+				expdiv.style.display = "block";		
+			}
+			else if(yr == curyear){
+				if(mon < curmon){
+					expdiv.style.display = "block";
+				}
+				else{
+					expdiv.style.display = "none";
+				}
+			}
+		}
+
+		function ccvs(){
+			var ccvno = document.examparts.ccv.value;
+			var ccvdiv = document.getElementById("ccvnum");
+
+			if(isNaN(ccvno) || ccvno.length != 3){
+				ccvdiv.style.display = "block";
+			}
+			else{
+				ccvdiv.style.display = "none";
+			}
+		}
+	</script>
+</head>
+<body>
+
+	<div class="main-bar">
+		<img src="https://pngimage.net/wp-content/uploads/2018/06/online-exam-png-1.png" width="40px" height="40px">
+		<font size="30px" style="color: cornflowerblue">O</font>NLINE<font size="30px" style="color: cornflowerblue">E</font>XAM <font size="30px"
+		style="color: cornflowerblue">R</font>EGISTRATION WEBSITE
+	</div>
+	<div class="log">
+			<a href="{{url_for('logcall')}}"><button style="color:white;background: none;border:none">LOGOUT</button></a>
+	</div>
+
+	<div class="sidenav">
+		<label style="color: green;font-size: 20px;margin-left: 10px">DASH BOARD
+		</label> <hr>
+		<button onclick="personal()">Personal Details</button>
+	 	<button onclick="address()">Address</button>
+	  	<button onclick="sslc()">SSLC Details</button>
+	  	<button onclick="hsc()">HSC Details</button>
+	  	<button onclick="parts()">Exam Particulars</button>
+	  	<button onclick="contacts()">Contact Us</button><hr>
+	</div>
+
+	<div id="pdetails">
+		<div id="mobmessage">
+			<label style="color: red; font-size: 10px;">Enter Valid Mobile Number</label>
+		</div>
+		<form name="per_det" action="/Applicant" method= 'POST'>
+			<label class="per_head"><font color="red" size="35px">A</font>PPLICANT'S <font color="red" size="35px">P</font>ERSONAL DETAIL</label>
+			<div class="applicant_table">
+				<table width="500px" >
+				<tr>
+					<td>Applicant Name</td>
+					<td>: <input type="text" name="appname" title="Only Characters" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123  || (event.charCode == 32))" required></td>
+				</tr>
+
+				<tr>
+					<td>Father Name</td>
+					<td>: <input type="text" name="fatname" title="Only Characters" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)" required></td>
+				</tr>
+				<tr>
+					<td>Mother Name</td>
+					<td>: <input type="text" name="motname" title="Only Characters" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)" required></td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td>
+						<input type="radio" name="gender" value="Male">Male<br>
+
+						<input type="radio" name="gender" value="Female">Female<br>
+
+						<input type="radio" name="gender" value="Others">Others
+					</td>
+				</tr>
+				<tr>
+					<td>Date Of Birth</td>
+					<td>: <input type="date" name="dob" required></td>
+				</tr>
+				<tr>
+					<td>Mobile</td>
+					<td>:
+						 <input type="text" title="Only 10 digits " name="phone" onblur="mobile()" required>
+					</td>
+				</tr>
+				<tr>
+					<td>District</td>
+					<td>
+						: <select name="district">
+							{% for dist in district %}
+							<option value="{{dist.name}}">{{dist.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td>
+						: <select name="states">
+							{% for st in states %}
+							<option value="{{st.name}}">{{st.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Religion</td>
+					<td>
+						: <select name="religion">
+							{% for rel in religion %}
+							<option value="{{rel.name}}">{{rel.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Nationality</td>
+					<td>: <input type="text" name="nation" value="Indian" required></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						: <input type="submit" value="Save">
+					</td>
+				</tr>
+			</table>
+			</div>
+		</form>
+	</div>
+	<!-- Address Details -->
+	<div id="adetails" class="adddet" >
+		<div id="pinmsg">
+			<label style="color: red; font-size: 10px;">Enter Valid PIN</label>
+		</div>
+		<label class="per_head"><font color="red" size="35px">A</font>PPLICANT'S <font color="red" size="35px">A</font>DDRESS DETAILS</label>
+		<form name="add_det" action="/address" method='POST'>
+			<div class="applicant_table">
+				<table width="400px">
+				<tr>
+					<td>Door.No </td>
+					<td>: <input type="text" name="door" placeholder="door number" required></td>
+				</tr>
+				<tr>
+					<td>Taluk </td>
+					<td>: <input type="text" name="taluks" placeholder="Taluk " required></td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td>
+						: <input type="text" name="city" placeholder="City" required>
+					</td>
+				</tr>
+				<tr>
+					<td>PIN Code</td>
+					<td>: <input type="text" name="pin" placeholder="6-digits" onblur="pincode()" required></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Save" >
+					</td>
+				</tr>
+			</table>
+			</div>
+		</form>
+	</div>
+
+	<!-- SSLC Details -->
+	<div id="sslcid">
+		<div id="cert">
+			<label style="color: red;font-size: 10px">Invalid Certificate Number</label>
+		</div>
+		<div id="permg">
+			<label style="color: red;font-size: 10px">Invalid Percentage (0 - 100)</label>
+		</div>
+		<form name="sslc_id" action="/sslcdetails" method='POST'>
+			<label class="per_head"><font color="red" size="35px">A</font>PPLICANT'S <font color="red" size="35px">SSLC</font> DETAILS</label>
+			<div class="applicant_table">
+				<table width="400px">
+				<tr>
+					<td>Certificate No.</td>
+					<td>: <input type="text" name="cerno" placeholder="certificate no." onblur="certify()" required></td>
+				</tr>
+				<tr>
+					<td>School Name </td>
+					<td>: <input type="text" name="sclname" placeholder="school" required></td>
+				</tr>
+				<tr>
+					<td>Board</td>
+					<td>
+						: <select name="board">
+							{% for bd in board %}
+							<option value="{{bd.name}}">{{bd.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Percentile</td>
+					<td>: <input type="text" name="marper" placeholder="%" onblur="percent()" required></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Save">
+					</td>
+				</tr>
+			</table>
+			</div>
+		</form>
+	</div>
+	<!-- HSC Details -->
+	<div id="hscid">
+		<div id="certs">
+			<label style="color: red;font-size: 10px">Invalid Certificate Number</label>
+		</div>
+		<div id="permgs">
+			<label style="color: red;font-size: 10px">Invalid Percentage (0 - 100)</label>
+		</div>
+		<form name="hsc_id" action="hscdetails" method='POST'>
+			<label class="per_head"><font color="red" size="35px">A</font>PPLICANT'S <font color="red" size="35px">HSC</font> DETAILS</label>
+			<div class="applicant_table">
+				<table>
+				<tr>
+					<td>Certificate No. </td>
+					<td>: <input type="text" name="cernos" placeholder="certificate no." onblur="hcertify()" required></td>
+				</tr>
+				<tr>
+					<td>School Name </td>
+					<td>: <input type="text" name="sclnames" placeholder="school" required></td>
+				</tr>
+				<tr>
+					<td>Board </td>
+					<td>
+						: <select name="boards">
+							{% for bd in boards %}
+							<option value="{{bd.name}}">{{bd.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Percentile </td>
+					<td>: <input type="text" name="marpers" onblur="hpercent()" placeholder="%" required>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Save">
+					</td>
+				</tr>
+			</table>
+			</div>
+		</form>
+	</div>
+
+	<!-- Exam Particulars -->
+	<div id="exampart">
+		<div id="card">
+			<label style="color: red;font-size: 10px;">Invalid Card Number</label>
+		</div>
+		<div id="exp">
+			<label style="color: red;font-size: 10px;">Invalid Expiry Date!! Renew or Enter another card Exp.date</label>
+		</div>
+		<div id="ccvnum">
+			<label style="color: red;font-size: 10px;">Invalid CCV number</label>
+		</div>
+		<form name="examparts" action="/particulars" method='POST'>
+			<label class="per_head"><font color="red" size="35px">A</font>PPLICANT'S <font color="red" size="35px">E</font>XAM <font color="red" size="35px">P</font>ARTICULARS <font color="red" size="35px">F</font>EE DETAILS</label>
+			<div class="applicant_table">
+				<table>
+					<tr>
+						<td>
+							Name Of The Exam 
+						</td>
+						<td>
+							: <select name="noexam">
+								<option>GROUP I SERVICES EXAMINATION (001)</option>
+								<option>GROUP l-A SERVICES EXAMINATION </option>
+								<option>GROUP l-B SERVICES EXAMINATION </option>
+								<option>CSSE -1 (COMBINED SUBORDINATE SERVICES EXAMINATION - I) </option>
+								<option>CSSE - II (COMBINED SUBORDINATE SERVICES EXAMINATION - II) </option><option>GROUP IV SERVICES EXAMINATION </option>
+							</select>
+						</td>
+					</tr>
+
+				<tr>
+					<td>Exam District</td>
+					<td>
+						: <input type="text" name="part_dist" placeholder="District" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" required>
+					</td>
+				</tr>
+				<tr>
+					<td>Exam - Centre</td>
+					<td>
+						: <input type="text" name="part_centre" title="Should not be Empty" placeholder="centre"  required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Credit Card.No
+					</td>
+					<td>
+						: <input type="text" name="credits" placeholder="16 digits" title="Numbers Not allowed" onblur="creditcard()" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Expiry Date
+					</td>
+					<td>
+						: <input type="text" name="expdata" placeholder="mm/yy" title="Should not be Empty" required onblur="expiry()">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						CCV.No
+					</td>
+					<td>
+						: <input type="text" name="ccv" placeholder="000" title="3 digits" onblur="ccvs()" required>
+					</td>
+				</tr>
+				<tr>
+					<td>Fees</td>
+					<td>
+						: RS :<select name="fees">
+							<option selected>1500</option>
+						</select>
+						<input type="button" value="pay" onclick="pay()">
+					</td>
+				</tr>
+				<tr>
+					<td>Fees Status </td>
+					<td id="payinfo">
+						: <input type="text" name="status" value="Un-Paid">
+					</td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Submit Info">
+					</td>
+				</tr>
+			</table>
+			</div>
+		</form>
+	</div>
+
+	<div id="home">
+		<label id="announce">List Of Examinations</label><br><br>
+		<table class="form-pos" width="600px" border="1">
+			<tr style="font-size: 15px">
+				<th>Name Of The Service</th>
+				<th>Action</th>
+			</tr>
+			<tr>
+				<td>GROUP I SERVICES EXAMINATION (001)</td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+			<tr>
+				<td>GROUP l-A SERVICES EXAMINATION </td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+			<tr>
+				<td>GROUP l-B SERVICES EXAMINATION </td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+			<tr>
+				<td>CSSE -1  (COMBINED SUBORDINATE SERVICES EXAMINATION - I) </td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+			<tr>
+				<td>CSSE - II (COMBINED SUBORDINATE SERVICES EXAMINATION - II)  </td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+			<tr>
+				<td>GROUP IV SERVICES EXAMINATION  </td>
+				<td><button onclick="personal()">Apply Now</button></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="aboutus">
+		<div class="class-boopalan">
+			<img src="{{url_for('static',filename='images/17CSR020.jpg')}}" width="100px" height="100px" align="centre">
+			<div class="content">
+				<font color="cornflowerblue">Name : </font>M Boopalan <br>
+				<font color="cornflowerblue">Phone.no : </font>+91 88259 71005 <br>
+				<font color="cornflowerblue">Mail ID : </font>boopalanm.17cse@kongu.edu 
+			</div>
+		</div>
+		<div class="class-hari">
+			<img src="{{url_for('static',filename='images/17CSR055.jpg')}}" width="100px" height="100px" align="centre">
+			<div class="content">
+				<font color="cornflowerblue">Name : </font>K Hariprakash <br>
+				<font color="cornflowerblue">Phone.no : </font>+91 94891 49398 <br>
+				<font color="cornflowerblue">Mail ID : </font>hariprakashk.17cse@kongu.edu
+			</div>
+		</div>
+		<div class="class-gokul">
+			<img src="{{url_for('static',filename='images/17CSR043.jpg')}}" width="100px" height="100px" align="centre">
+			<div class="content">
+				<font color="cornflowerblue">Name : </font>P Gokul Nath <br>
+				<font color="cornflowerblue">Phone.no : </font>+91 86677 82856 <br>
+				<font color="cornflowerblue">Mail ID : </font>gokulnathp.17cse@kongu.edu 
+			</div>
+		</div>
+		<div class="class-gibson">
+			<img src="{{url_for('static',filename='images/17CSR040.jpg')}}" width="100px" height="100px" align="centre">
+			<div class="content">
+				<font color="cornflowerblue">Name : </font>L Gibson <br>
+				<font color="cornflowerblue">Phone.no : </font>+91 82203 76573 <br>
+				<font color="cornflowerblue">Mail ID : </font>gibsonl.17cse@kongu.edu
+			</div>
+		</div>
+		<div class="addresss">
+			<u> Address </u> :<br>
+			Thoppupalayam, Perundurai, <br>
+			Erode District, <br>
+			Tamil Nadu - 638060
+		</div>
+	</div>
+</body>
+</html>

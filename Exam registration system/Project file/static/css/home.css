@@ -1,0 +1,369 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 190px;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #211;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav button {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  background:none;
+  border:none;
+}
+
+.sidenav button:hover, .sidenav button:focus{
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.main-bar{
+  position: fixed;
+  top: 0;
+  left:0px;
+  background-color: #211;
+  width: 100%;
+  color: white;
+  letter-spacing: 7px;
+  font-size: 20px;
+  padding-left: 300px; 
+}
+
+.per_head{
+  margin-left: 250px;
+  font-size: 30px;
+}
+
+.applicant_table{
+  margin-left: 290px;
+}
+
+#pdetails{
+  margin-left: 200px;
+  margin-top: 80px;
+  line-height: 45px;
+  display: none;
+}
+
+.log{
+  color: white;
+  position: absolute;
+  height: 20px;
+  border-radius: 4px;
+  padding:7px 0px 5px 5px;
+  left: 90%;
+  top: 3%;
+}
+
+.log:hover{
+  cursor: pointer;
+  animation-name: logout;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes logout{
+  from{
+    background-color: none;
+    color:green;
+  }
+  to{
+    background-color: green;
+    color:white;
+  }
+}
+
+#pdetails input[type=submit],
+#pdetails input[type=button],
+#adetails input[type=submit],
+#adetails input[type=button],
+#sslcid input[type=submit],
+#sslcid input[type=button],
+#hscid input[type=submit],
+#hscid input[type=button],
+#exampart input[type=submit],
+#exampart input[type=button]
+{
+  width: 100px;
+  height: 30px;
+  background:0;
+  border-width :0px 0px 2px 0px;
+} 
+
+#pdetails input[type=submit]:hover,
+#pdetails input[type=button]:hover,
+#adetails input[type=submit]:hover,
+#adetails input[type=button]:hover,
+#sslcid input[type=submit]:hover,
+#sslcid input[type=button]:hover,
+#hscid input[type=submit]:hover,
+#hscid input[type=button]:hover,
+#exampart input[type=submit]:hover,
+#exampart input[type=button]:hover
+{
+  cursor: pointer;
+  animation-name: bts;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+#pdetails input[type=text],
+#pdetails input[type=date],
+#adetails input[type=text],
+#sslcid input[type=text],
+#hscid input[type=text],
+#exampart input[type=text]
+{
+  width: 250px;
+  height: 25px;
+  padding-left: 10px;
+  border-radius: 5px;
+  border-color: black;
+}
+
+#pdetails input[type=text]:focus,
+#pdetails input[type=date]:focus,
+#adetails input[type=text]:focus,
+#sslcid input[type=text]:focus,
+#hscid input[type=text]:focus,
+#exampart input[type=text]:focus{
+  background-color: #d6ecc0 ;
+  border-color: green;
+}
+
+#pdetails input[type=text]:hover,
+#pdetails input[type=date]:hover,
+#adetails input[type=text]:hover,
+#sslcid input[type=text]:hover,
+#hscid input[type=text]:hover,
+#exampart input[type=text]
+{
+  border-color: green;
+}
+
+@keyframes bts{
+  from{
+    background-color: white;
+    border-color: white;
+    color: black;
+  }
+  to{
+    border-color: black;
+    background-color: #3d4040;
+    color: white;
+  }
+}
+.adddet{
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  line-height: 45px;
+  display: none;
+}
+
+#sslcid{
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  line-height: 45px;
+  display: none;
+}
+
+#hscid{
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  line-height: 45px;
+  display: none;
+}
+
+#exampart{
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  line-height: 45px;
+  display: none;
+}
+
+#home{
+  position: absolute;
+  top: 80px;
+  left: 500px;
+  line-height: 45px;
+  display: block;
+  font-size: 30px;
+}
+
+#announce{
+  text-decoration: underline;
+  animation-name: anounce;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.announe table{
+  text-align: center;
+}
+
+.form-pos{
+  margin-left: -100px;
+  word-spacing: 3px;
+  font-size: 12px;
+}
+
+.form-pos button{
+  background:none;
+  border:none;
+}
+
+.form-pos button:hover{
+  cursor: pointer;
+  color: green;
+  text-decoration: underline;
+}
+
+#aboutus{
+  background-color: #1e2020;
+  opacity: 0.9;
+  position: absolute;
+  top: 56px;
+  left: 191px;
+  width: 84.9%;
+  height: 90.6%;
+  display: none;
+  color: white;
+}
+
+.class-boopalan{
+  position: absolute;
+  left: 70px;
+  top: 70px;
+}
+
+.class-hari{
+  position: absolute;
+  left: 50%;
+  top: 70px;
+}
+
+.class-gokul{
+  position: absolute;
+  left: 70px;
+  top: 50%;
+}
+
+.class-gibson{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.class-boopalan img, .class-hari img, .class-gokul img, .class-gibson img{
+  border-radius: 50%;
+  filter: brightness(80%);
+  border: 3px solid black;
+  box-shadow: 2px 2px 10px 2px grey;
+}
+
+.content{
+  position: absolute;
+  width: 300px;
+  left: 130px;
+  top: 3px;
+  line-height: 30px;
+}
+
+.addresss{
+  text-align: center;
+  position: absolute;
+  top: 80%;
+  left: 35%;
+}
+
+@keyframes anounce{
+  10%{
+    color: blue;
+  }
+  30%{
+    color: red;
+  }
+  50%{
+    color: yellow;
+  }
+  70%{
+    color: green;
+  }
+  90%{
+    color: violet;
+  }
+  100%{
+    color: skyblue;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*Validation messafes*/
+#mobmessage{
+  display: none;
+  position: absolute;
+  left: 74%;
+  top: 78%;
+}
+
+#pinmsg{
+  display: none;;
+  position: absolute;
+  left: 88%;
+  top: 68%;
+}
+#permg, #permgs{
+  display: none;
+  position: absolute;
+  top: 75%;
+  left: 60%;
+}
+
+#cert, #certs{
+  display: none;
+  position: absolute;
+  left: 60%;
+  top: 27%;
+}
+
+#card{
+  display: none;
+  position: absolute;
+  top: 46%;
+  left: 45%;
+}
+
+#ccvnum{
+  display: none;
+  position: absolute;
+  left: 42%;
+  top: 62%
+}
+
+#exp{
+  display: none;
+  position: absolute;
+  left: 45%;
+  top: 56%;
+}

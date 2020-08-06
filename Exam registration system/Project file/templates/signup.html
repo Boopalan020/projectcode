@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+* {box-sizing: border-box;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color:  #4b7fdf ;
+}
+
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+  margin-left: 25%;
+  border-radius: 5px;
+}
+
+.container {
+  padding: 16px;
+}
+
+.modal {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://i2.wp.com/digihubuk.com/wp-content/uploads/2018/01/Free-Professional-Background-Image-for-Websites.jpeg?ssl=1");
+  display: block; 
+  background-size: cover;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  padding-top: 50px;
+}
+
+.modal-content {
+  background-color:  #728e6c   ;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 20px; 
+  opacity: 0.9;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: green;
+  border:none;
+  background:none;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.terms{
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  width: 40%;
+  height: 80%;
+  overflow: scroll;
+  display:none ;
+  background-color:  #f1ece6 ;
+  opacity: 0.9;
+  line-height: 30px;
+  overflow-x: hidden;
+  padding-left: 20px;
+  justify-content: center;
+}
+
+
+
+#closebtn input[type=submit]{
+  background:none;
+  border:none;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+  .terms{
+    margin-left: 0px;
+    width: 100%;
+  }
+}
+</style>
+<body>
+
+<div id="id01" class="modal">
+  <form action="/" id="cloasebtn">
+    <input type="submit" value="&times;" class="close" >
+  </form>
+  
+  <form class="modal-content" action="http://127.0.0.1:5005/fromsubmition" method='POST'>
+    <div class="container">
+      <h1>Sign Up</h1>
+      <hr>
+      <label><b>User ID</b></label>
+      <input type="text" name="userid" required placeholder="Enter user ID">
+
+      <label><b>Email</b></label>
+      <input type="text" name="email" placeholder="Enter Email" required>
+
+      <label >Mobile</label>
+      <input type="text" name="mobile" placeholder="+91">
+
+      <label ><b>Password</b></label>
+      <input type="password" name="psw" placeholder="Enter Password" required>
+
+      <label><b>Repeat Password</b></label>
+      <input type="password" name="repeat" placeholder="Repeat Password" required>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue" onclick="document.getElementById('termshow').style.display='block'">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="terms" id="termshow">
+     <span onclick="document.getElementById('termshow').style.display='none'" style="color: black;" class="close" title="Close Modal">&times;</span>
+    <p></p>
+    <label style="font-size: 20px;margin-left: 150px;color:#50c3f1;padding-top: 50px"><b><u>TERMS AND CONDITIONS</u></b></label>
+    <dl>
+        <label style="font-size: 20px;"><b>Terms of Use</b></label>
+        <dd>
+           - We would request you to kindly read the terms of service carefully and consider these as the terms of agreement between you and us. This governs the use and access to the website and the services to you and your associates.
+
+            Think exam is an Online Examination System to streamline your preparation and performance. The terms will be liable to a customer the moment, the customer creates an account on the website. These terms are effective to timely amendments on the choice of the provider.
+        </dd>
+        <label style="font-size: 20px;"><b>Services And Products</b></label>
+        <dd>
+          - We agree to offer the customer an account on the online assessment platform using a private server. Considering an event of a planned change in the provider’s network or infrastructure, the provider shall make practical efforts in order to notify the customer in advance. You agree to provide accurate and updated identification information during the account registration. The customer is solely responsible for the entire content shared on their account and also agrees to promptly notify in case of an unauthorized use or breach of the account. We will not be responsible for any loss or damage arising from the failure to provide accurate information or impose account security.
+
+
+          The terms to provide service are between the provider and the customer. No third party recipient interference is permitted. The provider should respect the privacy of the content and take utmost care in order to safeguard any illegal usage. Service is dependent on factors that include the network, servers and other subsidiary tools. Considering a case in which the software behaves uneven and the user gets an error, our team will work to resolve the issue by earliest, understanding the critical nature of the exam related events.
+        </dd>
+        <label style="font-size: 20px;"><b>Use Policy</b></label>
+        <dd>
+          A. Prohibited Content and Activities - Email spam- Not allowed for using our services to transmit email spam, junk mail, return address and mailing lists. Hacking – IP scanning, denial of service, or other residuals to the security breaches or attempts interfering service of other network or servers. Intellectual property- The intellectual rights are reserved along with the copyright, trademark, or the patent rights. Fraud, violation of privacy rights, dissemination of offensive context and any kind of illegal activities.
+          <p></p>
+          B. False Information - Your personal information including name, email and contact details shared should be correct. We have the authorization to block your account in case of any information mismatch.
+          <p></p>
+          C. Misuse of System Resources - Multiple accounts will not be accepted. If found multiple accounts under the name of a single organization, the first account will be served as your primary account. The prior created accounts will be blocked without any notice. The attempts of questions are restricted if it extends a particular number for a particular subscription.
+          <p></p>
+          D. Concurrency - The concurrency provided will be of the order of 10% of the monthly limit of the number of attempts - as per the plan enrolled by the customer. ThinkExam is not responsible for any crashes / damages caused and shall bear no loss - whatsoever in case the concurrency is found to be more than 10%. Please ensure to discuss your exact exam usage - before conducting the exams.
+        </dd>
+         <label style="font-size: 20px;"><b>Account Cancellation</b></label>
+         <dd>
+           You will be solely responsible for the cancellation of your account, data backup and deletion of information. The entire content from the panel will be deleted once instructed for the cancellation of the account.
+         </dd>
+         <label style="font-size: 20px;"><b>Governing Law</b></label>
+         <dd>
+           This agreement is designed and governed in reference to the laws of India any dispute shall be heard at the local administrative bodies.
+         </dd>
+    </dl>
+  </div>
+</div>
+
+<script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

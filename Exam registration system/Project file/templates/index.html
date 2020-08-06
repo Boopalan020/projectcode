@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Angular Application</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style1.css')}}">
+	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Rochester|Swanky+and+Moo+Moo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<div ng-app="myapp" ng-controller="webc" ng-init="shoo=false;disc=true;signshoo=false;">
+		<div class="Intro">
+			<div class="logo">
+				<img src="https://pngimage.net/wp-content/uploads/2018/06/online-exam-png-1.png" width="60px" height="60px">
+			</div>
+
+			<div class="title">
+				<font size="30px" style="color: cornflowerblue">O</font>nline<font size="30px" style="color: cornflowerblue">E</font>xam <font size="30px" style="color: cornflowerblue">R</font>egistration Website
+			
+				<div class="btns">
+			
+					<div style="position: absolute;">
+						<form action="/login">
+							<input type="submit" value="Login" />
+						</form>
+					</div>
+			
+					<div style="position: absolute;margin-left: 60px;">
+						<form action="/signup">
+							<input type="submit"  value="Sign-Up" />
+						</form>
+					</div>
+					
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="suggest">
+				<font style="color: coral" size="30px">N</font>eed to reduce your <u style="color: coral">
+					<font>Form Filling Works?</font>
+				</u>
+			</div>
+			
+			<div class="points">
+				<font style="color: coral">-</font> Easy Registering for your exam <br>
+				<font style="color: coral">-</font> Fill Forms Without Doubts<br>
+				<font style="color: coral">-</font> Are you Scared About any Wrong Information?<br>
+				<font style="color: coral">-</font> Here's the Solution For your all queries <font style="color: coral;">!!!</font> <br>
+			</div>
+			
+			<div class="sol">
+				<font style="color: cornflowerblue"><u>Sign-Up</u></font> & <font style="color: cornflowerblue"><u>Register</u></font> Without Any Fear Of your Information <font style="color: coral;animation-name: excl;animation-iteration-count: infinite;animation-duration: 1s;" size="100px">!!!</font>
+			</div>
+
+			<div class="login-form">
+			
+				<div class="adds">
+			
+					<div class="about">
+			
+						<dl><strong>
+								<font size="20px" style="font-family: 'Allerta Stencil', sans-serif;color: darkgoldenrod"><u>About Us</u></font>
+							</strong><br>
+			
+							<dd>
+								<font style="color: coral">-</font> Articles 316 to 319 deal with the structure of State Public Service Commissions. Tamil Nadu Public Service Commission is headed by the Chairman and Comprises of fourteen other members, all appointed by the Governor of Tamil Nadu, in accordance with the above provisions of the Constitution of India.
+							</dd>
+			
+							<dd><br></dd>
+			
+							<dd>
+								<font style="color: coral">-</font> The Commission meets at frequent intervals and hands down necessary rules, policies, guidelines and decisions on various issues arising from time to time. The Secretary to the Commission holds responsibility of ensuring implementation of its' various decisions, besides handling day-to-day administration, departmental promotion committees, oral tests for recruitment, etc.
+							</dd>
+						</dl>
+					</div>
+				</div>
+
+				<div class="disclaimer" ng-show="disc">
+			
+					<dl>
+						<strong>
+							<font style="font-family: 'Allerta Stencil', sans-serif;color: darkgoldenrod;font-size: 20px;margin-left: 20px;"><u>Disclaimer</u> :</font>
+						</strong>
+			
+						<dd style="color:cornflowerblue;">
+							<marquee direction="up" height="300px;" scrollamount="2">
+								<font style="color: coral">-</font>Endeavor has been made to make available updated and accurate information. The contents of this site are solely for the purpose of providing general information on TNPSC to the candidates and general public. Errors whenever brought to notice will be rectified. Nothing contained herein constitutes a warranty or promise on TNPSC on any aspect of performance. TNPSC or National Informatics Centre (NIC) will accept no responsibility and liability, of whatever nature, for the correctness of the material on this website. In this regard, users and all those concerned are advised to verify and ensure the correctness of facts or information displayed from the concerned official or person.
+
+								<font style="color: coral">-</font>The contents of this web site is for information purposes only enabling public to have quick and easy access to information. We are taking every effort to provide accurate and updated information. However, it is likely that the details such as telephone numbers, name of the officer holding a post, etc may change prior to its updating in the web site. Hence, we do not assume any legal liability on the completeness, accuracy or usefulness of the contents provided in this web site.
+
+								<font style="color: coral">-</font>The links are provided to other external sites in some documents. We are not responsible for the accuracy of the contents in those sites. The hyperlinks given to external sites does not constitute an endorsement of information, products or services offered by these sites.
+
+								<font style="color: coral">-</font>Despite our best efforts, we do not warranty that the documents in this site is free from infection by computer viruses.
+
+								We welcome your suggestions to improve our site and request that any error found may kindly be brought to our notice.
+
+								Thanks for visiting our site.
+
+								Nodal Team (Website Maintenance), Tamil Nadu Public Service Commission
+							</marquee>
+						</dd>
+
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		var app = angular.module("myapp", ['ngAnimate']);
+		app.controller("webc", function($scope) {});
+
+	</script>
+</body>
+
+</html>
