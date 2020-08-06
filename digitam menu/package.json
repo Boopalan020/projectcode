@@ -1,0 +1,22 @@
+{
+  "name": "digital",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app",
+  "scripts": {
+    "start": "app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "math-ceil": "^1.0.0",
+    "md5": "^2.2.1",
+    "mongodb": "^3.5.5",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7"
+  }
+}

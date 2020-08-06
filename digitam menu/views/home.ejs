@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Digital Restaurant Order system</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <header class="container-fluid d-flex justify-content-center p-lg-4 p-sm-2">
+        <span class="h2 text-center" style="font-weight: 700;">Digital Menu For Restaurants</span>
+    </header>
+
+    <% if (osuccess == true) { %>
+    <div class="alert alert-success">
+        <strong>Order placed successfully</strong>
+    </div>
+    <% } %>
+
+
+    <!-- home section -->
+    <% if (home == true) { %>
+    <div class="container-sm d-flex justify-content-center">
+        <div class="align-self-center p-lg-3 p-sm-2 m-5">
+
+            <form action="/category" method="POST">
+
+                <div class="form-check mb-5">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="choice" id="choice" value="hotel" checked>
+                        <span style="font-weight: 700;">Hotel Admin - Login</span>
+                    </label>
+                </div>
+
+                <div class="form-check mb-5">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="choice" id="choice" value="customer" >
+                        <span style="font-weight: 700;">Customer - order</span>
+                    </label>
+                </div>
+
+                <input type="submit" class="btn peach-gradient text-center" value="Enter">
+
+            </form>
+
+        </div>
+    </div>
+    <% } %>
+
+    <!-- Reigster Section -->
+    <% if (registerSection == true) { %>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                <div class="d-flex justify-content-center">
+                    <span class="h3 p-lg-3" style="font-weight: 700;color: green;">Register</span>
+                </div>
+
+                <% if (rerror == true) { %>
+                 <div class="alert alert-danger">
+                     <span> <strong> USer registration Failed!<br>Checkout yout connection or Try later </strong> </span>
+                 </div>
+                <% } %>
+
+                <form action="/newuser" method="POST">
+
+                    <div class="input-group flex-nowrap mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">User Name</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" onblur="validateName()" aria-label="Username" id="username" name="username" required>
+                    </div>
+
+                    <div class="mb-4" id="name-error">
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">E-Mail ID</span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Mail ID" aria-label="mail id" name="mailid" required>
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Phone.no</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="10-digit" name="phno" minlength="10" maxlength="10" id="phno" onblur="validatePhone()" required>
+                    </div>
+
+                    <div class="mb-4" id="numb-error">
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Password</span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="password" name="psws" id="psw" onblur="validatePsw()" required>
+                    </div>
+
+                    <div id="psw-error" class="mb-4">
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Confirm - Password</span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="password" name="cpsw" id="cpsw" onblur="matchPsw()" required>
+                    </div>
+
+                    <dic class="mb-4" id="cpsw-error">
+                    </dic>
+
+                    <div class="input-group flex-nowrap pb-3">
+                        <a href="/tologin"><input type="button" class="btn purple-gradient" value="Login"
+                                aria-label="Username" aria-describedby="addon-wrapping"></a>
+                        <input type="submit" value="Register Now" class="btn aqua-gradient">
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3"></div>
+
+        </div>
+
+    </div>
+    <% } %>
+
+    <!-- admin login -->
+    <% if (loginSection == true) { %>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                <div class="d-flex justify-content-center">
+                    <span class="h3 p-lg-5" style="font-weight: 700;">Login</span>
+                </div>
+
+
+                <% if (error == true) { %>
+                <div class="alert alert-danger">
+                    <span class="bold d-flex justify-content-center"> <strong>Username or password is wrong</strong>
+                    </span>
+                </div>
+                <% } %>
+
+                <% if (success == true) { %>
+                 <div class="alert alert-success alert-dismissable">
+                    <span class="bold d-flex justify-content-center"> <strong>User registration success</strong>
+                    </span>
+                 </div>
+                <% } %>
+
+                <form action="/login" method="POST">
+                    <div class="input-group flex-nowrap mb-5">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">E-Mail ID</span>
+                        </div>
+                        <input type="email" class="form-control" name="username" placeholder="Mail ID" required>
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-5">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Password</span>
+                        </div>
+                        <input type="password" class="form-control" name="psw" placeholder="password" required
+                            aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+
+                    <div class="input-group flex-nowrap mb-5">
+                        <input type="submit" class="btn purple-gradient" value="Login"
+                            aria-describedby="addon-wrapping">
+                        <a href="/register"><input type="button" value="Register Now" class="btn aqua-gradient"></a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3"></div>
+
+        </div>
+
+    </div>
+    <% } %>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script src="js/validator.js"></script>
+
+</body>
+
+</html>
