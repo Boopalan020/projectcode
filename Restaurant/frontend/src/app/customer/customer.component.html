@@ -1,0 +1,174 @@
+<div class="container-fluid">
+  <div class="container p-lg-3">
+    <div class="text-center">
+
+      <div class="mt-lg-5">
+        <div class="text-center mt-lg-5">
+          <span class="h4" style="font-weight: 700;color:#E7EDEB;">Customer Corner</span>
+        </div>
+
+        <div *ngIf="info" class="mt-5">
+
+          <p class="pb-lg-3" style="color: white;">
+            If I ever own a restaurant, I will never allow the waiters to ask if the diners like their dishes. <br>
+            Particularly when they're talking.
+          </p>
+
+          <span class="p-lg-3">
+            <strong class="h4 mb-lg-2">Instruction</strong><br>
+            <div class="row">
+
+              <div class="col-lg-4"></div>
+              <div class="col-lg-4">
+                <ul class="list-group">
+                  <li class="list-group-item"> Please don't wait in the Queue </li>
+                  <li class="list-group-item"> Check your food items Online </li>
+                  <li class="list-group-item"> Enter yout Name and Table number </li>
+                  <li class="list-group-item"> Place your Order </li>
+                  <li class="list-group-item"> Have your Food </li>
+                  <li class="list-group-item"> Pay your Bill to cashier </li>
+                </ul>
+              </div>
+              <div class="col-lg-4"></div>
+
+            </div>
+          </span>
+
+        
+          <div>
+            <br>
+
+            <button (click)="onOrderNow()" class="btn btn-primary bg-primary p-lg-3 p-sm-2">
+              Order Now
+            </button>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="menuView">
+        <div class="text-center text-light p-3">
+          <span class="h3" style="font-weight: 700;">Hotel Menu</span>
+        </div>
+
+        <div *ngIf="ordering.ok" class="mt-2">
+          <div class="alert {{ ordering.classname }}">
+            {{ ordering.success }}
+          </div>
+        </div>
+
+        <form #orderForm="ngForm" (submit)="onPlaceOrder()">
+
+          <div *ngFor="let view of views; let i = index">
+            <div *ngIf="i % 4 == 0" class="row pb-lg-2">
+
+              <div *ngIf="i+1 < views.length" class="col-lg-3 p-2">
+                <div class="card">
+                  <div class="card-body">
+
+                    <h5 class="card-title"> {{ views[i+1].category }} </h5>
+                    <p class="card-text"> {{ views[i+1].food_name }} </p>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" #checklist1 class="custom-control-input" id="{{ views[i+1]._id }}"
+                        name="{{ views[i+1]._id }}" (click)="onCheck(views[i+1]._id)">
+                      <label class="custom-control-label" for="{{ views[i+1]._id }}"> INR. Rs : {{ views[i+1].price }}
+                      </label>
+                      <input type="text" (input) = "quantsChange($event.target.value, views[i+1]._id)" class="form-control" placeholder="Quantity"
+                        name="{{ views[i+1].quant }}" [disabled] = "!checklist1.checked" required>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="i+2 < views.length" class="col-lg-3 p-2">
+                <div class="card">
+                  <div class="card-body">
+
+                    <h5 class="card-title"> {{ views[i+2].category }} </h5>
+                    <p class="card-text"> {{ views[i+2].food_name }} </p>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" #checklist2 class="custom-control-input" id="{{ views[i+2]._id }}"
+                        name="{{ views[i+2]._id }}" (click)="onCheck(views[i+2]._id)">
+                      <label class="custom-control-label" for="{{ views[i+2]._id }}"> INR. Rs : {{ views[i+2].price }}
+                      </label>
+                      <input type="text" (input) = "quantsChange($event.target.value, views[i+2]._id)" class="form-control" placeholder="Quantity"
+                        name="{{ views[i+2].quant }}" [disabled] = "!checklist2.checked" required>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="i+3 < views.length" class="col-lg-3 p-2">
+                <div class="card">
+                  <div class="card-body">
+
+                    <h5 class="card-title"> {{ views[i+3].category }} </h5>
+                    <p class="card-text"> {{ views[i+3].food_name }} </p>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox"  #checklist3 class="custom-control-input" id="{{ views[i+3]._id }}"
+                        name="{{ views[i+3]._id }}" (click)="onCheck(views[i+3]._id)">
+                      <label class="custom-control-label" for="{{ views[i+3]._id }}"> INR. Rs : {{ views[i+3].price }}
+                      </label>
+                      <input type="text" (input) = "quantsChange($event.target.value, views[i+3]._id)" class="form-control" placeholder="Quantity"
+                        name="{{ views[i+3].quant }}" [disabled] = "!checklist3.checked" required>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="i+4 < views.length" class="col-lg-3 p-2">
+                <div class="card">
+                  <div class="card-body">
+
+                    <h5 class="card-title"> {{ views[i+4].category }} </h5>
+                    <p class="card-text"> {{ views[i+4].food_name }} </p>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" #checklist4 class="custom-control-input" id="{{ views[i+4]._id }}"
+                        name="{{ views[i+4]._id }}" (click)="onCheck(views[i+4]._id)">
+                      <label class="custom-control-label" for="{{ views[i+4]._id }}"> INR. Rs : {{ views[i+4].price }}
+                      </label>
+                      <input type="text" (input) = "quantsChange($event.target.value, views[i+4]._id)" class="form-control" placeholder="Quantity"
+                        name="{{ views[i+4].quant }}" [disabled] = "!checklist4.checked" required>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-5 p-3">
+              <input class="form-control" [class.is-valid]="customername.invalid && customername.touched" type="text"
+                [(ngModel)]="customerorder.Customer" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" #customername="ngModel"
+                name="cusName" placeholder="Customer Name" required>
+            </div>
+
+            <div class="col-lg-5 p-3">
+              <input class="form-control" [class.is-valid]="tableno.invalid && tableno.touched"
+                [(ngModel)]="customerorder.Table" name="tableno" #tableno="ngModel" type="text" pattern="^[0-9]*$"
+                placeholder="Table Number" required>
+
+            </div>
+
+            <div class="col-lg-2 p-3">
+              <input type="submit" class="btn btn-success" value="Place Order">
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>

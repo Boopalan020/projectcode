@@ -1,0 +1,121 @@
+<div class="row  pl-lg-5">
+  <div class="pr-lg-2">
+    <button class="btn btn-secondary" (click)="onView()">
+      Incoming Orders
+    </button>
+  </div>
+
+  <div class="pr-lg-2">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Hotel Menu
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item mycursor" (click) = "onAddMenu()" >Add to Menu</a>
+        <a class="dropdown-item mycursor" (click) = "onDeleteMenu()" >Delete from Menu</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container" [ngSwitch]="decideView" class="p-lg-5">
+
+  <!-- Viewwing Order Part -->
+  <div *ngSwitchCase="'viewOrder'">
+    <div class="row">
+
+      <!-- Orders visible here -->
+      <div class="col-lg-7 fixed-dash" >
+        <table class="table">
+
+          <thead>
+            <th>SI.No</th>
+            <th>Customer Name</th>
+            <th>Table Number</th>
+            <th>Dishes</th>
+            <th>Total Bill</th>
+            <th>Action</th>
+          </thead>
+    
+          <tbody *ngFor="let order of incomingorders; let i = index;">
+              <td>  {{ i+1 }} </td>
+              <td> {{ order.Customer }} </td>
+              <td> {{ order.Table }} </td>
+              <td> {{ order.Dishes }} </td>
+              <td> {{ order.Bill }} </td>
+              <td> <button class="btn btn-primary" (click) = "onViewBill(incomingorders[i])" >
+                View Bill
+              </button> </td>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bills visible here -->
+      <div class="col-lg-5" style="overflow-x: scroll;">
+        
+        <span class="d-flex justify-content-center h3 text-danger"> Bill </span>
+        <form class="form-vertical mt-lg-3" (submit)="onPrintOrder()" novalidate>
+          
+          <div class="form-group row">
+            <label class="control-label col-lg-5">Order ID : </label>
+            <div class="col-lg-7 text-warning">
+              {{ showBill._id }}
+              <input type="hidden" value="{{ showBill._id }}">
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="control-label col-lg-5">Customer Name :</label>
+            <div class="col-lg-7">
+              {{ showBill.Customer }}
+              <input type="hidden" value="{{ showBill.Customer }}" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="control-label col-lg-5">Table number : </label>
+            <div class="col-lg-7">
+              {{ showBill.Table }}
+              <input type="hidden" value="{{ showBill.Table }}" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="control-label col-lg-5">Ordered Items : </label>
+            <div class="col-lg-7">
+              {{ showBill.Dishes }}
+              <input type="hidden" value="{{ showBill.Dishes }}" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="control-label col-lg-5">Total Amount : </label>
+            <div class="col-lg-7">
+              {{ showBill.Bill }}
+              <input type="hidden" value="{{ showBill.Bill }}" required>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="enable" >
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success">Print</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Menu Creation Part -->
+  <div *ngSwitchCase="'customizeMenu'">
+    <app-custommenu></app-custommenu>
+  </div>
+
+  <!-- Menu Deletion Part -->
+  <div *ngSwitchCase = "'deleteMenu'">
+    <app-deletemenu></app-deletemenu>
+  </div>
+
+</div>

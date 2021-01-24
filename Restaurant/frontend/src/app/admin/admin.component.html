@@ -1,0 +1,195 @@
+<!-- Login And Register Page -->
+<div *ngIf="loginDiv">
+
+  <div class="container-fluid">
+    <!-- Login error division -->
+    <div *ngIf = "loginError" class="float-right mr-lg-4">
+
+      <div class="alert alert-danger p-lg-2alert-dismissible fade show" role="alert">
+        <span> Incorrect username or password </span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" (click) = "onresetclose()">&times;</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container p-lg-3">
+    <div class="text-center p-lg-3">
+      <span class="h3" style="font-weight: 700;color:#4E1A3D;">Admin Corner</span>
+    </div>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div [ngSwitch]=" adminChoice" class="col-lg-6">
+
+        <!-- login -->
+        <div *ngSwitchCase="'login'">
+          <div class="text-center">
+            <span style="font-weight:700;color: #fff;" class="h3">Login</span>
+          </div>
+
+          <div>
+            <form #userLogin="ngForm" (ngSubmit)="loginNow()" novalidate class="p-4">
+
+              <!-- E - mail -->
+              <div class="form-row p-3">
+                <div class="col">
+                  <input type="email" [(ngModel)]="userLog.emailids" #Lmail="ngModel" class="form-control"
+                    placeholder="Mail - ID" name="emailids" required>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="form-row p-3">
+                <div class="col">
+                  <input type="password" [(ngModel)]="userLog.passwords" #Lpass="ngModel" class="form-control"
+                    placeholder="password" name="passwords" required>
+                </div>
+              </div>
+
+              <div class="float-right pr-3">
+                <a href="#" class="text-light">Forgot password?</a>
+              </div>
+
+              <div class="form-row p-3">
+                <div class="col-lg-3 col-sm-6 p-2">
+                  <input type="submit" [disabled] = "userLogin.invalid" value="Login" class="btn btn-success">
+                </div>
+                <div class="col-lg-9 col-sm-6 p-2">
+                  <input type="button" (click)="toggleLogin()" value="Create Account" class="btn btn-outline-danger">
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+        <!-- registration -->
+        <div *ngSwitchCase="'register'">
+          <div class="text-center">
+            <span style="font-weight:700;color: #fff;" class="h3">Create Account</span>
+          </div>
+
+          <div *ngIf="serverresponse.ok">
+            <div class="mt-lg-3 alert alert-success">
+              <span> {{ serverresponse.success }} </span>
+            </div>
+          </div>
+
+          <div>
+            <form class="p-4" #userRegister="ngForm" (ngSubmit)="onSubmit()">
+              <!-- Name -->
+              <div class="form-row p-2">
+                <div class="col-lg-6">
+                  <input [(ngModel)]="user.first_name" #firname="ngModel"
+                    [class.is-invalid]="firname.invalid && firname.touched" name="fir_name" type="text"
+                    class="form-control" placeholder="First Name" pattern="^[A-Za-z]+$" minlength="1" maxlength="5"
+                    required>
+                </div>
+                <div class="col-lg-6">
+                  <input [(ngModel)]="user.last_name" #lasname="ngModel"
+                    [class.is-invalid]="lasname.invalid && lasname.touched" name="las_name" type="text"
+                    class="form-control" placeholder="Last Name" pattern="^[A-Za-z]+$" minlength="5" maxlength="10"
+                    required>
+                </div>
+              </div>
+
+              <div class="m-2" *ngIf="firname.invalid && firname.touched || lasname.invalid && lasname.touched">
+                <div class="alert alert-danger">
+                  <ul class="p-2">
+                    <li>Should not be EMPTY</li>
+                    <li>Only Alphabets</li>
+                    <li>First name - minimum length 1 and maximum length 5</li>
+                    <li>Last name - minimum length 5 and maximum length 10</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Hotel Name -->
+              <div class="form-row p-2">
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" #hotname="ngModel"
+                    [class.is-invalid]="hotname.invalid && hotname.touched" name="hot_name" placeholder="Hotel Name"
+                    [(ngModel)]="user.Hotel_name" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" maxlength="20" required>
+                </div>
+              </div>
+
+              <div class="m-2" *ngIf="hotname.invalid && hotname.touched">
+                <div class="alert alert-danger">
+                  <ul class="p-2">
+                    <li>Numbers not allowed</li>
+                    <li>Length equal to or below 20 character</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- E mail ID -->
+              <div class="form-row p-2">
+                <div class="col-lg-12">
+                  <input type="email" class="form-control" #emails="ngModel"
+                    [class.is-invalid]="emails.invalid && emails.touched" name="emailids" placeholder="E-Mail ID"
+                    [(ngModel)]="user.email" required>
+                </div>
+              </div>
+
+              <div class="m-2" *ngIf="emails.invalid && emails.touched">
+                <div class="alert alert-danger">
+                  <ul class="p-2">
+                    <li>Invalid e-mail ID</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="form-row p-2">
+                <div class="col-lg-6">
+                  <input type="password" class="form-control" #pass="ngModel"
+                    [class.is-invalid]="pass.invalid && pass.touched" name="pass"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" placeholder="Password"
+                    minlength="8" [(ngModel)]="user.password" minlength="10" required>
+                </div>
+                <div class="col-lg-6">
+                  <input type="password" class="form-control" #cpass="ngModel"
+                    [class.is-invalid]="cpass.invalid && cpass.touched" name="confirm" placeholder="Confirm-Password"
+                    [(ngModel)]="user.confirm_pass" minlength="8" required>
+                </div>
+              </div>
+
+              <div class="m-2"
+                *ngIf="pass.invalid && pass.touched || cpass.invalid && cpass.touched || pass.value != cpass.value">
+                <div class="alert alert-danger">
+                  <ul class="p-2">
+                    <li> Minimum 8 Character </li>
+                    <li> Atleast 1 Letter </li>
+                    <li> Atleast 1 Number </li>
+                    <li> Atleast 1 Special Character </li>
+                    <li> Passwords should match each other </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- buttons -->
+              <div class="form-row p-3">
+                <div class="col-lg-3 col-sm-6 p-2">
+                  <input type="submit" [disabled] = "userRegister.invalid" value="create" class="btn btn-success">
+                </div>
+                <div class="col-lg-9 col-sm-6 p-2">
+                  <input type="button" (click)="toggleRegister()" value="Back to Login" class="btn btn-secondary">
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="dashboardDiv" class="container-fluid">
+  <!-- Dashboard Component -->
+  <app-dashboard [name] = "UserName"></app-dashboard>
+</div>

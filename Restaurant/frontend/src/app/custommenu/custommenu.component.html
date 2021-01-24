@@ -1,0 +1,78 @@
+<div>
+
+  <div class="row">
+
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+
+      <div class="d-flex justify-content-center">
+        <span class="h3" style="font-weight: 700;">Add Food To Menu</span>
+      </div>
+
+      <div *ngIf="adding.ok">
+        <div class="alert {{ adding.classname }}">
+          {{ adding.success }}
+        </div>
+      </div>
+
+      <form #Additem="ngForm" (submit)="onAdd()" novalidate>
+        <div class="form-group">
+          <label for="categ">Food Category</label>
+          <input #category="ngModel" [(ngModel)]="menu.categ" [class.is-valid]="category.invalid && category.touched"
+            type="text" name="categ" class="form-control" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" maxlength="25" placeholder="Category" required>
+        </div>
+
+        <!-- category validation Alert Message -->
+        <div *ngIf="category.invalid && category.touched">
+          <div class="alert alert-warning">
+            <ul>
+              <li>should not be Empty</li>
+              <li>should not contain a Number</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="itemname">Item Name</label>
+          <input #itemname="ngModel" [(ngModel)]="menu.foodname" [class.is-valid]="itemname.invalid && itemname.touched"
+            type="text" name="itemname" class="form-control" pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" placeholder="Item Name" required>
+        </div>
+
+        <!-- Item Name validation Alert Message -->
+        <div *ngIf="itemname.invalid && itemname.touched">
+          <div class="alert alert-warning">
+            <ul>
+              <li>should not be Empty</li>
+              <li>should not contain a Number</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price </label>
+          <input #itemprice="ngModel" [(ngModel)]="menu.price" [class.is-valid]="itemprice.invalid && itemprice.touched"
+            type="text" name="price" class="form-control" pattern="^[0-9]*$" placeholder="Rs:" required>
+        </div>
+
+        <!-- Item price validation Alert Message -->
+        <div *ngIf="itemprice.invalid && itemprice.touched">
+          <div class="alert alert-warning">
+            <ul>
+              <li>should not be Empty</li>
+              <li>no Alphabets</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="from-group">
+          <input type="submit" class="btn btn-success" value="Add Item">
+        </div>
+
+      </form>
+
+    </div>
+    <div class="col-lg-3"></div>
+
+  </div>
+
+</div>

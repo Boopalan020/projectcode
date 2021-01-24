@@ -1,0 +1,12 @@
+.home-container 
+{
+    height: 100vh;
+    overflow : scroll;
+}
+
+.bgsvg
+{
+    background: url("../assets/back2.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

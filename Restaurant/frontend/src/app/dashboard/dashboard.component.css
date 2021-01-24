@@ -1,0 +1,10 @@
+.mycursor:hover
+{
+    cursor: pointer;
+}
+
+.fixed-dash
+{
+    overflow: scroll;
+    height: 70vh;
+}

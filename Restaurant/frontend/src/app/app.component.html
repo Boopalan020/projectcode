@@ -1,0 +1,33 @@
+<div class="bgsvg home-container">
+  <!-- Menu Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <a class="navbar-brand ml-lg-3" style="font-weight: 700;color:#41729F" href="#">{{ menuName }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-5">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link text-light">Home</a>
+        </li>
+        <li class="nav-item ml-lg-5">
+          <a routerLink="/customer" class="nav-link text-light">Order Food</a>
+        </li>
+        <li class="nav-item ml-lg-5">
+          <a routerLink="/admin" class="nav-link text-light">Manage</a>
+        </li>
+        <li class="nav-item ml-lg-5">
+          <a routerLink="/" class="nav-link text-light">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mt-5 pt-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- About us to be created after development -->
+<footer></footer>

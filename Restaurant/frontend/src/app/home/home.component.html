@@ -1,0 +1,39 @@
+<div class="mb-5">
+    <!-- Home division -->
+    <div class="container-fluid p-4" id="home">
+  
+      <div class="container p-4">
+        <div class="row home-container">
+          <div class="col-lg-7 d-flex justify-content-center">
+            <div class="align-self-center">
+              <span class="h3" style="font-weight:800;color: #0C2D48;"> Welcome to {{ hotelName }} </span>
+              <p class="h6 p-lg-2" style="color: #B1D4E0;">
+                Order Your Food Online
+              </p>
+              <blockquote [class]="slogansize" class="text-light">
+                {{ slogan }}
+              </blockquote>
+              <div class="media p-3">
+                <iframe class=""
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d692.6966140137962!2d77.60544498607344!3d11.273927087674208!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96d8d1498426d%3A0xe770c0f0afd03870!2sKongu%20cafeteria!5e0!3m2!1sen!2sin!4v1586407862117!5m2!1sen!2sin"
+                  width="300" height="240" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                  tabindex="0"></iframe>
+              </div>
+              <span class="" style="color: #FF2768;" >Find us on Google Map</span>
+            </div>
+          </div>
+  
+          <div class="col-lg-5 p-5">
+            <div class="mt-lg-5 pt-lg-5">
+              <a class="pt-lg-5" routerLink = "/customer" routerLinkActive = "active"><button class="btn btn-outline-dark p-lg-4">I am a Customer</button></a>
+            </div>
+            <div class="mt-lg-5 pt-lg-5 mb-lg-5">
+              <a class="pt-lg-5" routerLink = "/admin" routerLinkActive = "active"><button class="btn btn-outline-dark p-lg-4">I am a Manager</button></a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
